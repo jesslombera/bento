@@ -4,11 +4,12 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import GifImageList from '../components/GifImageList.jsx';
 import GifImageModal from '../components/GifImageModal.jsx';
-import SearchBar from '../components/SearchBar.jsx';
 import '../styles/styles.css';
 
 class Home extends React.Component {
+  
   componentWillMount() {
+ 
     this.props.actions.requestGifImages();
     this.props.actions.requestGifImageFacts();
   }

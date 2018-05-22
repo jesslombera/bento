@@ -16,12 +16,13 @@ export const AUTH_USER = 'AUTH_USER';
 const GIF_IMAGE_FACTS_API_URL = 'https://cors-proxy.htmldriven.com/?url=https://catfact.ninja/facts?limit=25';
 const GIF_IMAGES_API_URL = 'http://thecatapi.com/api/images/get?format=xml&results_per_page=25'; 
 
+// Firebase database configuration
 const config = {
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyC5yEhrOqDtKWVCeFYT1fDGuttWYvm3Uok",
   authDomain: "giphy-react.firebaseapp.com",
   databaseURL: "https://giphy-react.firebaseio.com",
   storageBucket: "giphy-react.appspot.com",
-  messagingSenderId: process.env.MESSAGING_SENDER_ID
+  messagingSenderId: "227124572471"
 };
 
 Firebase.initializeApp(config);
@@ -51,7 +52,8 @@ export function requestGifImages() {
 
 export function requestGifImageFacts() {
   return function(dispatch) {
-    request.get(GIF_IMAGE_FACTS_API_URL).then(response => {
+    request.get(GIF_IMAGE_FACTS_API_URL)
+    .then(response => {
       dispatch({
         type: FETCH_GIF_IMAGE_FACTS,
         payload: JSON.parse(response.body.body)
@@ -66,7 +68,7 @@ export function favoriteGifImage({selectedGifImage}) {
   const imageFact = selectedGifImage.gifImageFacts.fact
 
   // Store a hash as id to save in database
-  const gifId = window.btoa(`${imageUrl}-${imageFact}`);
+  const gifId = window.btoa(unescape(`${imageUrl}-${imageFact}`));
   return dispatch => Firebase.database().ref(userUid).update({
     [gifId]: {url: imageUrl, fact: imageFact, id: gifId }
   });

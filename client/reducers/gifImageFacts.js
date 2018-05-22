@@ -15,5 +15,3 @@ export default function gifImageFacts(state = initialState, action) {
       return state;
   }
 }
-
-

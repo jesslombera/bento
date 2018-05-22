@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import * as Actions from '../actions';
 
-
 const validate = values => {
   const errors = {};
 

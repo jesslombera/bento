@@ -54,14 +54,11 @@ class Signup extends React.Component {
       <div className="container">
         <div className="col-md-6 col-md-offset-3">
           <h2 className="text-center">Sign Up</h2>
-          
           { this.renderAuthenticationError() }
-
           <form onSubmit={this.props.handleSubmit(this.handleFormSubmit)}>
             <Field name="email" type="text" component={this.renderField} label="Email" />
             <Field name="password" type="password" component={this.renderField} label="Password" />
             <Field name="passwordConfirmation" type="password" component={this.renderField} label="Password Confirmation" />
-
             <button action="submit" className="btn btn-primary">Sign up</button>
           </form>
         </div>
@@ -80,4 +77,3 @@ export default connect(mapStateToProps, Actions)(reduxForm({
   form: 'signup',
   validate
 })(Signup));
-

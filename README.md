@@ -1,16 +1,14 @@
-# react-giphy-search
-Small application where a user can search for gifs and display results.
-Used Giphy API for the search engine
+# bento-image-app
+Small application where a user gets list of cat images and cat facts.
 
-
-##Usage
+## Usage
 ```
 npm install
 npm start
 open http://localhost:8080/
 ```
 
-##Dependencies
+## Dependencies
 * React
 * Webpack
 * babel-loader
